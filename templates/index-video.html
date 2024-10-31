@@ -1,0 +1,660 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+	<title>Ahmed Bilal Bhatti</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="firework html5 based template.">
+	<meta name="keywords" content="firework, onepage, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'img/favicon.ico'%}" rel="shortcut icon"/>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/animate.min.css'%}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css'%}"/>
+	<!-- <link rel="stylesheet" href="{% static 'certificate.scss'%}"/> -->
+	<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet"/>
+	<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+	<!-- Fancybox CSS and JS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.0/dist/fancybox.css" />
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.0/dist/fancybox.umd.js"></script>
+
+</head>
+<style>
+	.service-item {
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		padding: 20px; 
+		text-align: center;
+		background-color: #fff;
+		margin: 10px;
+		transition: transform 0.3s;
+	}
+
+	.service-item:hover {
+    	transform: scale(1.05);
+	}
+
+	.service-image {
+		width: 100%;
+		height: auto;
+		border-radius: 8px 8px 0 0;
+		object-fit: cover;
+		margin-bottom: 15px;
+	}
+
+	.certificate-item {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	margin: 15px 0;
+	text-align: center;
+	width: 100%;
+	height: 400px; /* Set a fixed height for all cards */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	}
+
+	.certificate-item img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	}
+
+	.certificate-info {
+	flex-grow: 1;
+	overflow: hidden;
+	}
+
+	.certificate-info h2 {
+	font-size: 1.2em;
+	color: #333;
+	font-weight: bold;
+	margin: 10px 0;
+	}
+
+	.certificate-info p {
+	font-size: 0.9em;
+	color: #666;
+	line-height: 1.5;
+	max-height: 100px;
+	overflow-y: auto; 
+	padding-right: 5px; 
+	}
+
+	.certificate-info::-webkit-scrollbar {
+	width: 6px;
+	}
+
+	.certificate-info::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	}
+
+
+.certificate-info h2 {
+  font-size: 1.2em;
+  color: #000000;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.certificate-info p {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.5;
+  max-height: 100px;
+  overflow-y: auto; /* Allows longer descriptions to scroll */
+  padding-right: 5px;
+}
+
+.certificate-info::-webkit-scrollbar {
+  width: 6px;
+}
+
+.certificate-info::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.isotope_items {
+  gap: 20px; /* Additional spacing between columns in the grid */
+}
+
+</style>
+<body>
+	<!-- Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!--====== Top Section Start ======-->
+	<div class="top-element">
+		<div class="container">
+			<!-- Navigation Switch -->	
+			<div class="nav-switch">
+				<span class="bar-one"></span>
+				<span class="bar-two"></span>
+				<span class="bar-three"></span>
+			</div>
+			<!-- Navigation Menu -->
+			<nav class="mainmenu">
+				<ul class="menu-list">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#story">Story</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			<!-- Top Social Links -->
+			<div class="social">
+				{% for i in person %}
+				<a href="{{i.github}}" target="_blank"><i class="fa fa-github"></i></a>
+				<a href="{{i.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="{{i.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="{{i.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="mailto:{{ i.email }}" target="_blank"><i class="fa fa-envelope"></i></a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<!--====== Top Section End ======-->
+
+	
+
+	{% for i in person %}
+	<!--====== Intro Section Start ======-->
+	<section class="intro-section" id="home">
+		<div class="bg-style">
+			<!-- Video Background -->
+			<video id="video-bg" class="video-js vjs-default-skin" autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+				<source src="{{ i.bg_video.url }}" type="video/mp4">
+			</video>
+		</div>
+		<div class="intro-inner">
+			<div class="intro-content">
+				<h1>{{i.name}}</h1>
+				<h2><span class="rotate"> {{i.post}}, From {{i.location}}</span></h2>
+			</div>
+		</div>
+	</section>
+	<!--====== Intro Section End ======-->
+	{% endfor %}
+
+	<!--====== About Section Start ======-->
+	<section class="about-section" id="about">
+		<div class="container pt180 pb180">
+			<div class="row">
+				{% for i in about %}
+				<div class="col-md-6">
+					<!-- About image -->
+					<div class="about-img">
+						<img src="{{i.image.url}}" alt="about">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="about-contant">
+						<h2 class="mb30 wow fadeInUp" data-wow-delay="0.4s">{{i.title}}</h2>
+						<p class="wow fadeInUp" data-wow-delay="0.6s">{{i.description_1}}</p>
+						<p class="wow fadeInUp" data-wow-delay="0.8s"><em>{{i.description_2}}</em></p>
+					</div>
+				{% endfor %}
+	
+					<!-- Skills -->
+					<div class="row skills-list mt50 wow fadeInUp" data-wow-delay="0.8s">
+						{% for i in skills %}
+						<div class="col-sm-4">
+							<div class="skills-item">
+								<h2><img src="{{ i.icon.url }}" alt="{{ i.title }} icon" style="width: 24px; height: 24px; margin-right: 10px; vertical-align: middle;">{{ i.title }}</h2>
+								<!-- <span>{{ i.percentage }}%</span> -->
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== About Section End ======-->
+
+	<!--====== Service Section Start ======-->
+	<section class="service-section">
+		<div class="container pt100 pb100">
+			<div class="section-title mb60">
+				{% for i in cap %}
+				{% if forloop.first %}
+				<h2>{{i.hedings.main_title}}</h2>
+				<br>
+				<span><p data-wow-delay="0.2s">{{i.hedings.sub_title}}</p></span>
+				{% endif %}
+				{% endfor %}
+			</div>
+			<div id="service-carousel">
+	
+				{% for i in cap %}
+				<div class="service-item">
+					<img src="{{ i.icon.url }}" alt="{{ i.title }} icon" class="service-image">
+					<h2>{{ i.title }}</h2>
+					<p>{{ i.description }}</p>
+				</div>
+				{% endfor %}
+	
+			</div>
+		</div>
+	</section>
+	
+	<!--====== Service Section End ======-->
+
+
+	<!--====== Resume Section Start ======-->
+	<section class="resume-section" id="story">
+		<div class="container pb100 pt100">
+			<div class="section-title mb60">
+				{% for i in education %}
+				{% if forloop.first %}
+				<h2>{{i.headings.main_title}}</h2>
+				<br>
+				<span><p data-wow-delay="0.2s">{{i.headings.sub_title}}</p></span>
+				{% endif %}
+				{% endfor %}
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="resumes">
+						{% for i in education %}
+						<li class="resume-item wow fadeInDown" data-wow-delay="0.2s">
+							<h3>{{i.title}}</h3>
+							<p><strong>{{i.institute}}</strong></p>
+							<h5>{{i.start_year}} - {{i.end_year}}</h5>
+							<p>{{i.description}}</p>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				<div class="col-md-6">
+					<ul class="resumes">
+						{% if exp %}
+						{% for i in exp %}
+						<li class="resume-item wow fadeInDown" data-wow-delay="0.3s">
+							<h3>{{ i.title }}</h3>
+							<p><strong>{{ i.institute }}</strong></p>
+							<h5>{{ i.start_year }} - {{ i.end_year }}</h5>
+							<p>{{ i.intro_description }}</p>
+							<ul style="line-height: 1.8;">
+								{% for responsibility in i.description|split:'#' %}
+									{% if responsibility %}
+										<li>{{ responsibility|trim }}</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</li>
+						{% endfor %}
+						{% else %}
+						<li class="resume-item wow fadeInDown" data-wow-delay="0.2s">
+							<h3>No Experience Found</h3>
+							<p>Currently, there are no recorded experiences available.</p>
+						</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Resume Section End ======-->
+
+
+	<!--====== Portfolio Section Start ======-->
+	<section class="portfolio-section" id="portfolio">
+		<div class="container-fluid pt100">
+			<div class="section-title mb60">
+				{% for i in proj_heading %}
+				<h2>{{i.main_title}}</h2>
+				<br>
+				<span><p data-wow-delay="0.2s">{{i.sub_title}}</p></span>
+				{% endfor %}
+			</div>
+			<ul class="portfolio-filter">
+				<li class="filter" data-filter="*">All Categories</li>
+				<li class="filter" data-filter=".ill">Programming Tasks</li>
+				<li class="filter" data-filter=".brand">Graphics Tasks</li>
+				<li class="filter" data-filter=".fs">Others</li>
+			</ul>
+			<div class="row isotope_items">
+				{% for i in proj %}
+					{% if i.category == 'Programming Task' %}
+						<div class="nopad col-md-4 col-sm-6 col-xs-12 ill">
+					{% elif i.category == 'Graphics Task' %}
+						<div class="nopad col-md-4 col-sm-6 col-xs-12 brand">
+					{% else %}
+						<div class="nopad col-md-4 col-sm-6 col-xs-12 fs">
+					{% endif %}
+							<div class="work-item">
+								<img src="{{ i.thumbnail.url }}" alt="{{ i.title }}" onerror="this.onerror=null; this.src='/path/to/default-image.png';">
+								<div class="overlay">
+									<div class="work-info">
+										<h2 style="font-size: 1.5em; margin: 0;">{{ i.title }}</h2>
+										<br>
+										<span style="display: block; font-size: 1.1em; margin-bottom: 10px; max-width: 97%; background-color: #f9f9f9; padding: 10px; border-radius: 5px; box-sizing: border-box; height: 120px; overflow-y: auto;">
+											<p style="margin: 0;">{{ i.description }}</p>
+										</span>
+									</div>
+			
+									<div class="media-links">
+										{% if i.media_project.all %}
+											{% for media in i.media_project.all %}
+												{% if media.media.url|is_video %}
+													<a href="{{ media.media.url }}" data-fancybox="gallery" data-caption="{{ media.pic_description }}">
+														<i class="fa fa-eye"></i>
+
+													</a>
+												{% else %}
+													<a href="{{ media.media.url }}" data-fancybox="gallery" data-caption="{{ media.pic_description }}">
+														<i class="fa fa-eye"></i>
+													</a>
+												{% endif %}
+											{% endfor %}
+										{% else %}
+											<a href="#" data-fancybox="gallery" data-caption="No media available">
+												<i class="fa fa-eye"></i>
+											</a>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<!--====== Portfolio Section End ======-->
+
+	<!--====== Review Section Start ======-->
+	<section class="review-section">
+		<div class="container pt100 pb100">
+			<div class="section-title mb60">
+				{% for i in certificates %}
+				<h2>{{ i.main_title }}</h2>
+				<br>
+				<span>
+					<p data-wow-delay="0.2s">{{ i.sub_title }}</p>
+				</span>
+				{% endfor %}
+			</div>
+	
+			<div class="row isotope_items">
+				{% for i in cer %}
+				<div class=" col-md-4 col-sm-6 col-xs-12">
+					<div class="certificate-item">
+						<a href="{{ i.certificate.url }}" data-fancybox="gallery" data-caption="{{ i.modal_caption }}" style="text-decoration: none; color: inherit;">
+							<img src="{{ i.certificate.url }}" alt="Sample Certificate">
+						</a>
+						<div class="certificate-info">
+							<h2>
+								<a href="{{ i.verify }}" target="_blank">
+									<strong style="color: #1d1d1d;">{{ i.title }}</strong>
+								</a>
+							</h2>
+							<p>{{ i.description }}</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	
+	<!--====== Review Section End ======-->
+
+	<!--====== Promotion Section Start ======-->
+	<section class="promotion-section">
+		{% for J in hire %}
+		<div class="promotion-bg" style="background-image: url({{J.image.url}});"></div>
+		<div class="container pt180 pb180">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 promotion">
+					<h2>{{J.text}}</h2>
+		
+					{% for i in person %}
+					<a href="mailto:{{ i.email }}?subject=Let's%20Collaborate!&body=Hi%20{{ i.name }},%0D%0A%0D%0AI%20would%20like%20to%20discuss%20some%20exciting%20projects%20we%20can%20work%20on%20together.%0D%0A%0D%0ALooking%20forward%20to%20hearing%20from%20you!%0D%0A%0D%0ABest%20Regards,%0D%0A[Your%20Name]" class="site-btn btn-light mt30 wow fadeInUp" data-wow-delay="0.2s">{{J.button_text}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>{% endfor %}
+	</section>
+	<!--====== Promotion Section End ======-->
+
+	<!--====== Contact Section Start ======-->
+	<section class="contact-section spad" id="contact">
+		<div class="container pt100 pb100">
+			<div class="section-title mb60">
+				{% for i in head_contact %}
+				<h2>Contact Now</h2>
+				<br>
+				<span><p data-wow-delay="0.2s">{{ i.sub_title }}</p></span>
+				{% endfor %}
+			</div>
+			<div class="row">
+				{% for i in person %}
+				<div class="col-md-5 col-sm-5">
+					<!-- Contact info -->
+					<ul class="contact-info">
+						<li class="wow fadeInDown" data-wow-delay="0.2s">
+							<h4>Location:</h4>
+							<p>
+								<a href="https://www.google.com/maps/search/?api=1&query={{ i.location}}" target="_blank" style="text-decoration: none; color: inherit;">
+									{{ i.location }}
+								</a>
+								<!-- <p><br></p> -->
+							</p>
+							<i class="fa fa-map-marker"></i>
+							<br>
+						</li>
+						<li class="wow fadeInDown" data-wow-delay="0.4s">
+							<h4>Email:</h4>
+							<p><a href="mailto:{{ i.email }}" style="text-decoration: none; color: inherit;">{{ i.email }}</a></p>
+							<i class="fa fa-paper-plane-o"></i>
+							<br>
+						</li>
+						<li class="wow fadeInDown" data-wow-delay="0.6s">
+							<h4>Phone:</h4>
+							<p>
+								<a href="tel:{{ i.phone }}" style="text-decoration: none; color: inherit;">
+									{{ i.phone }}
+								</a>
+							</p>
+							<i class="fa fa-mobile"></i>
+							<br>
+						</li>
+					</ul>
+				</div>
+				{% endfor %}
+				<div class="col-md-7 col-sm-7"><p style="font-size: 0.9em; color: gray; margin-top: -10px;">Please recheck your email; you will receive a receipt for your contact on this email.</p>
+					<form class="contact-form" id="con_form" method="POST">
+						{% csrf_token %}
+						<div style="display: flex; justify-content: space-between; margin-bottom: -12px;">
+							<input type="text" name="name" id="name" required placeholder="Your Name*" style="flex: 1; margin-right: 10px;">
+							<input type="email" name="email" id="email" required placeholder="Your Email*" style="flex: 1;">
+						</div>
+						<input type="text" name="subject" id="subject" required placeholder="Subject*" style="width: 100%; margin-bottom: 15px;">
+						<textarea id="message" name="message" required placeholder="Your Message*" style="width: 100%; margin-bottom: 15px;"></textarea>
+						<div class="text-center">
+							<button type="submit" class="contact-btn wow fadeInUp" data-wow-delay="0.2s">Send A Message</button>
+						</div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!--====== Contact Section End ======-->
+	<!-- <div id="map"></div> -->
+	<footer class="footer-section">
+		<div class="ft-top">
+			<div class="social-bottom wow fadeInDown" data-wow-delay="0.2s">
+				{% for i in person %}
+				<a href="{{i.github}}" target="_blank"><i class="fa fa-github"></i></a>
+				<a href="{{i.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="{{i.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="{{i.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="mailto:{{ i.email }}" target="_blank"><i class="fa fa-envelope"></i></a>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="container pt100 pb100">
+			<p id="copyright" style="margin: 0;"></p>
+			<p style="font-size: 0.9em; font-weight: 300; margin-top: 5px;">
+				{% for i in person %}
+				Made with <span style="color: red;">♥</span> by <a href="{{i.linkedin}}" style="color: inherit; text-decoration: none;">Ahmad Bilal Bhatti</a>
+				{% endfor %}
+			</p>
+		</div>
+	</footer>
+
+	<!--====== Javascripts & Jquery ======-->	
+	<script src="{% static 'js/jquery-2.1.4.min.js'%}"></script>
+	<script src="{% static 'js/jquery.parallax.js'%}"></script>
+	<script src="{% static 'js/jquery.simple-text-rotator.min.js'%}"></script>
+	<script src="{% static 'js/isotope.pkgd.min.js'%}"></script>
+	<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+	<script src="{% static 'js/magnific-popup.min.js'%}"></script>
+	<script src="{% static 'js/jquery.scrollUp.js'%}"></script>
+	<script src="{% static 'js/wow.min.js'%}"></script>
+	<script src="{% static 'js/jquery.youtubebackground.js'%}"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script> -->
+	<script src="{% static 'js/main.js'%}"></script>
+
+	<script>
+		const currentYear = new Date().getFullYear();
+		document.getElementById('copyright').innerHTML = `© ${currentYear} Copyright A2B. All Rights Reserved `;
+	</script>
+	
+	<script>
+		jQuery(document).ready(function($) {
+			var player = videojs('video-bg', {
+				autoplay: true,
+				loop: true,
+				muted: true,
+				controls: false, 
+			});
+		});
+	</script>
+		
+	<script>
+			Fancybox.bind('[data-fancybox="gallery"]', {
+				Toolbar: {
+					display: [
+						{ id: "counter", position: "center" },
+						"zoom",
+						"close",
+					],
+				},
+				Thumbs: false,
+				Video: {
+					autoplay: true,
+					ratio: 16 / 9,
+				},
+			});
+	</script>
+			
+	<script>
+		const buttons = document.querySelectorAll('.project');
+		const overlay = document.querySelector('.overlay');
+		const overlayImage = document.querySelector('.overlay__inner img');
+
+		function open(e) {
+		overlay.classList.add('open');
+		const src= e.currentTarget.querySelector('img').src;
+		overlayImage.src = src;
+		}
+
+		function close() {
+		overlay.classList.remove('open');
+		}
+
+		buttons.forEach(button => button.addEventListener('click', open));
+		overlay.addEventListener('click', close);
+	</script>
+
+	<script>
+		document.querySelectorAll('.img-box').forEach(box => {
+		box.addEventListener('mouseenter', function () {
+			this.querySelector('img').style.transform = 'scale(1.1)';
+			this.querySelector('.transparent-box').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+			const caption = this.querySelector('.caption');
+			caption.style.transform = 'translateY(-20px)';
+			caption.style.opacity = '1.0';
+		});
+	
+		box.addEventListener('mouseleave', function () {
+			this.querySelector('img').style.transform = 'scale(1.0)';
+			this.querySelector('.transparent-box').style.backgroundColor = 'rgba(0, 0, 0, 0)';
+			const caption = this.querySelector('.caption');
+			caption.style.transform = 'translateY(0)';
+			caption.style.opacity = '0.0';
+		});
+		});
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#con_form').on('submit', function(event) {
+				event.preventDefault();
+		
+				$.ajax({
+					type: 'POST',
+					url: '{% url "contact_view" %}', 
+					data: {
+						'name': $('#name').val(),
+						'email': $('#email').val(),
+						'subject': $('#subject').val(),
+						'message': $('#message').val(),
+						'csrfmiddlewaretoken': '{{ csrf_token }}', 
+					},
+					success: function(response) {
+						// Display success alert
+						swal("Success!", "Your message has been sent successfully!", "success");
+						$('#con_form')[0].reset(); 
+					},
+					error: function(xhr, status, error) {
+						swal("Error!", "There was an error sending your message. Please try again later.", "error");
+					}
+				});
+			});
+		});
+	</script>
+
+	<script>
+		const originalTitle = document.title;
+		function setPageHiddenTitle() {
+		document.title = "Please Come Back :(";
+		}
+		function restoreOriginalTitle() {
+		document.title = originalTitle;
+		}
+		document.addEventListener("visibilitychange", function () {
+		if (document.hidden) {
+			setPageHiddenTitle();
+		} else {
+			restoreOriginalTitle();
+		}
+		});
+		restoreOriginalTitle();
+	</script>
+</body>
+</html>

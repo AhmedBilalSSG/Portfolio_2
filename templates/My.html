@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Reaching Out!</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+    <table style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #444; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <tr>
+            <td style="padding: 40px;">
+                <!-- <a href="#" style="display: block; text-align: center; margin-bottom: 20px;"><img src="data:image/png;base64,{{ base64_image }}" alt="Logo" style="max-width: 160px; height: auto; display: block; margin: 0 auto 20px;"> -->
+                </a>
+                <h1 style="font-size: 20px; font-weight: bold; color: #ffffff; text-align: center; letter-spacing: 1.5px; margin-bottom: 20px;">{{ name }} Contact You </h1>
+                <p style="font-size: 18px; color: #ddd; text-align: center;">Hello Ahmed Bilal Bhatti,</p>
+                
+                <div style="background-color: #333; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                    <p style="color: #aaa; font-size: 14px;">Here's a summary of your message:</p>
+                    <ul style="color: #fff; font-size: 14px; padding-left: 20px; list-style-type: disc;">
+                        <li><strong>Name:</strong> {{ name }}</li>
+                        <li><strong>Email:</strong> {{ email }}</li>
+                        <li><strong>Subject:</strong> {{ subject }}</li>
+                        <li><strong>Message:</strong> {{ message }}</li>
+                    </ul>
+                </div>
+                <p style="font-size: 12px; color: #ddd; text-align: center; margin-top: 30px;">© 2024 A2B. All rights reserved.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
