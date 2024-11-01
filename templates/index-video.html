@@ -49,7 +49,7 @@
 		margin-bottom: 15px;
 	}
 
-	.certificate-item {
+	 .certificate-item {
 	background-color: #fff;
 	border-radius: 8px;
 	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@
 	margin: 15px 0;
 	text-align: center;
 	width: 100%;
-	height: 400px; /* Set a fixed height for all cards */
+	height: 400px; 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -82,14 +82,13 @@
 	font-weight: bold;
 	margin: 10px 0;
 	}
-
 	.certificate-info p {
 	font-size: 0.9em;
 	color: #666;
 	line-height: 1.5;
 	max-height: 100px;
 	overflow-y: auto; 
-	padding-right: 5px; 
+	padding-right: 5px;
 	}
 
 	.certificate-info::-webkit-scrollbar {
@@ -101,35 +100,9 @@
 	border-radius: 3px;
 	}
 
-
-.certificate-info h2 {
-  font-size: 1.2em;
-  color: #000000;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.certificate-info p {
-  font-size: 0.9em;
-  color: #666;
-  line-height: 1.5;
-  max-height: 100px;
-  overflow-y: auto; /* Allows longer descriptions to scroll */
-  padding-right: 5px;
-}
-
-.certificate-info::-webkit-scrollbar {
-  width: 6px;
-}
-
-.certificate-info::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-.isotope_items {
-  gap: 20px; /* Additional spacing between columns in the grid */
-}
+	.isotope_items {
+	gap: 20px; 
+	} */
 
 </style>
 <body>
@@ -314,6 +287,69 @@
 		</div>
 	</section>
 	<!--====== Resume Section End ======-->
+
+
+
+
+
+
+	
+
+
+
+
+	<!--====== Review Section Start ======-->
+	<section class="review-section">
+		<div class="container pt100 pb100">
+			{% for i in blog_headming %}
+			<div class="section-title mb60">
+				<h2>{{i.main_heading}}</h2>
+				<br>
+				<span><p data-wow-delay="0.2s">{{i.sub_title}}</p></span>
+			</div>
+			<div class="text-center mb40">
+				<img src="{{i.thumbnail.url}}" alt="" class="wow fadeInDown" data-wow-delay="0.2s">
+			</div>
+			{% endfor %}
+
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="review-carousel">
+						<!-- Single item -->
+						<div class="single-review">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the is simply.</p>
+							<h2>Mical Crooper</h2>
+							<h3>Envato Clint</h3>
+						</div>
+						<!-- Single item -->
+						<div class="single-review">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the Lorem Ipsum is simply. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the is simply.</p>
+							<h2>Jone Doe</h2>
+							<h3>Upwork Clint</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Review Section End ======-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<!--====== Portfolio Section Start ======-->

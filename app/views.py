@@ -17,8 +17,9 @@ def home(request):
     cer = Certificates.objects.all().order_by('-id')
     hire = Hire_Button_Picture.objects.all()
     head_contact = Contct_heading_Info.objects.all()
+    blog_headming = Blog_Heading_Info.objects.all()
 
-    return render(request, 'index-video.html', {'person': person,'about': about,'skills': skills,'cap': cap,'education': education,'exp': exp,'proj_heading': proj_heading,'proj': projects,'certificates': certificates,'cer': cer,'hire': hire,'head_contact': head_contact})
+    return render(request, 'index-video.html', {'person': person,'about': about,'skills': skills,'cap': cap,'education': education,'exp': exp,'proj_heading': proj_heading,'proj': projects,'certificates': certificates,'cer': cer,'hire': hire,'head_contact': head_contact,'blog_headming': blog_headming})
 
 @csrf_exempt
 def contact_view(request):
