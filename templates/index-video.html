@@ -97,11 +97,31 @@
 	.certificate-info::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
+	display: none;
 	}
 
-	/* .isotope_items {
+	 .isotope_items {
 	gap: 20px; 
-	} */ */
+	} 
+
+    .service-description::-webkit-scrollbar {
+        display: none;
+    }
+
+	.certificate-info p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+    max-height: 100px;
+    overflow: auto;
+    padding-right: 5px;
+	}
+
+	.certificate-info p::-webkit-scrollbar {
+    display: none;
+	}
+
+</style>
 
 </style>
 <body>
@@ -227,9 +247,9 @@
 	
 				{% for i in cap %}
 				<div class="service-item" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-					<img src="{{ i.icon.url }}" alt="{{ i.title }} icon" class="service-image" style="width: auto; height: 160px;">
+					<img src="{{ i.icon.url }}" alt="{{ i.title }} icon" class="service-image" style="width: auto; height: 180px;">
 					<h2>{{ i.title }}</h2>
-					<div class="service-description" style="height: 100px; overflow-y: auto;">
+					<div class="service-description" style="height: 110px; overflow-y: auto;">
 						<p style="margin: 0;">{{ i.description }}</p>
 					</div>
 				</div>
@@ -270,7 +290,7 @@
 					<ul class="resumes">
 						{% if exp %}
 						{% for i in exp %}
-						<li class="resume-item wow fadeInDown" data-wow-delay="0.3s">
+						<li class="resume-item wow fadeInDown" data-wow-delay="0.4s">
 							<h3>{{ i.title }}</h3>
 							<p><strong>{{ i.institute }}</strong></p>
 							<h5>{{ i.start_year }} - {{ i.end_year }}</h5>
@@ -311,7 +331,7 @@
 				<li class="filter" data-filter="*">All Categories</li>
 				<li class="filter" data-filter=".ill">Programming Tasks</li>
 				<li class="filter" data-filter=".brand">Graphics Tasks</li>
-				<li class="filter" data-filter=".fs">Others</li>
+				<li class="filter" data-filter=".fs">Research</li>
 			</ul>
 			<div class="row isotope_items">
 				{% for i in proj %}
