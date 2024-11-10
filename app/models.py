@@ -259,6 +259,7 @@ class Blog_Heading_Info(models.Model):
     
 class Blogs(models.Model):
     blog = models.ForeignKey(Blog_Heading_Info, on_delete=models.CASCADE, related_name='media_blog')
+    heading = models.CharField(max_length=255)
     description = models.TextField()
     author = models.CharField(max_length=100)
     platform = models.CharField(max_length=100, blank=True, null=True)

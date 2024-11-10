@@ -342,18 +342,17 @@
 					{% else %}
 						<div class="nopad col-md-4 col-sm-6 col-xs-12 fs">
 					{% endif %}
-							<div class="work-item">
+							<div class="work-item" style="margin-top: 10px;">
 								<img src="{{ i.thumbnail.url }}" alt="{{ i.title }}" onerror="this.onerror=null; this.src='/path/to/default-image.png';">
 								<div class="overlay">
 									<div class="work-info">
 										<h2 style="font-size: 1.5em; margin: 0;">{{ i.title }}</h2>
 										<br>
-										<span style="display: block; font-size: 1.1em; margin-bottom: 10px; max-width: 97%; background-color: #f9f9f9; padding: 10px; border-radius: 5px; box-sizing: border-box; height: 120px; overflow-y: auto;">
+										<span style="display: block; font-size: 1.1em; margin-bottom: 10px; max-width: 97%; background-color: #f9f9f9; padding: 10px; border-radius: 5px; box-sizing: border-box; height: 95px; overflow-y: auto;">
 											<p style="margin: 0;">{{ i.description }}</p>
 										</span>
 									</div>
-			
-									<div class="media-links">
+									<div class="media-links" style="margin-left: -10px;">
 										{% if i.media_project.all %}
 											{% for media in i.media_project.all %}
 												{% if media.media.url|is_video %}
@@ -439,7 +438,8 @@
 					<div class="review-carousel">
 						{% for blog in blogs_data %}
 						<div class="single-review" style="color: #000;">
-							<p style="color: #3a3a3a;">{{ blog.description }}</p>
+							<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;">{{ blog.heading }}</h1>
+							<p style="color: #3a3a3a;">{{ blog.description }}<a href="{{blog.link}}" target="_blank"> Read the full article</a></p>
 							<h2>{{ blog.author }}</h2>
 							<h3>{{ blog.platform }}</h3>
 						</div>
@@ -448,7 +448,8 @@
 					{% else %}
 					<div class="single-review">
 						{% for blog in blogs_data %}
-						<p style="color: #3a3a3a;">{{ blog.description }}</p>
+						<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;">{{ blog.heading }}</h1>
+						<p style="color: #3a3a3a;">{{ blog.description }}<a href="{{blog.link}}" target="_blank"> Read the full article</a></p>
 						<h2>{{ blog.author }}</h2>
 						<h3>{{ blog.platform }}</h3>
 						{% endfor %}
