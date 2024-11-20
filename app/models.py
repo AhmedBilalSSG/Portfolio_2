@@ -256,18 +256,3 @@ class Blog_Heading_Info(models.Model):
 
     def __str__(self):
         return self.main_heading
-    
-class Blogs(models.Model):
-    blog = models.ForeignKey(Blog_Heading_Info, on_delete=models.CASCADE, related_name='media_blog')
-    heading = models.CharField(max_length=255)
-    description = models.TextField()
-    author = models.CharField(max_length=100)
-    platform = models.CharField(max_length=100, blank=True, null=True)
-    link = models.URLField(max_length=200, blank=True, null=True)
-    added_on = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name_plural = "Blogs"
-
-    def __str__(self):
-        return f"{self.blog.main_heading} by {self.author}"

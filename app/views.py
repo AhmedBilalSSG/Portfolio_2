@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from app.models import *
 from app.email import *
+import feedparser
 
 def home(request):
     person = Person.objects.all()
@@ -18,10 +19,10 @@ def home(request):
     hire = Hire_Button_Picture.objects.all()
     head_contact = Contct_heading_Info.objects.all()
     blog_headming = Blog_Heading_Info.objects.all()
-    b = Blogs.objects.all().order_by('-id')
+    medium_articles = scrape_medium_articles_rss()
 
     return render(request, 'index-video.html', {'person': person,'about': about,'skills': skills,'cap': cap,'education': education,'exp': exp,'proj_heading': proj_heading,'proj': projects,'certificates': certificates,'cer': cer,'hire': hire,
-    'head_contact': head_contact,'blog_headming': blog_headming,'blogs_data': b})
+    'head_contact': head_contact,'blog_headming': blog_headming,'medium_articles': medium_articles})
 
 @csrf_exempt
 def contact_view(request):
@@ -43,3 +44,13 @@ def contact_view(request):
             return JsonResponse({'message': str(e)}, status=500)
 
     return JsonResponse({'message': 'error'}, status=400)
+
+def scrape_medium_articles_rss():
+    rss_url = 'https://medium.com/feed/@ahmadbilalssg'
+    feed = feedparser.parse(rss_url)
+    article_list = []
+    for entry in feed.entries:
+        full_description = entry.summary
+        truncated_description = ' '.join(full_description.split()[:112]) + ('...' if len(full_description.split()) > 112 else '')
+        article_list.append({'heading': entry.title,'url': entry.link,'author': entry.author if 'author' in entry else 'Unknown','type': 'Article','platform': 'Medium', 'description': truncated_description, })
+    return article_list

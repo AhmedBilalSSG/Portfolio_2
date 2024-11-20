@@ -431,27 +431,26 @@
 				<img src="{{ i.thumbnail.url }}" alt="" class="wow fadeInDown" data-wow-delay="0.2s">
 			</div>
 			{% endfor %}
-	
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					{% if blogs_data|length > 1 %}
+					{% if medium_articles|length > 1 %}
 					<div class="review-carousel">
-						{% for blog in blogs_data %}
-						<div class="single-review" style="color: #000;">
-							<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;">{{ blog.heading }}</h1>
-							<p style="color: #3a3a3a;">{{ blog.description }}<a href="{{blog.link}}" target="_blank"> Read the full article</a></p>
-							<h2>{{ blog.author }}</h2>
-							<h3>{{ blog.platform }}</h3>
+						{% for blog in medium_articles %}
+						<div class="single-review" style="text-align: left;">
+							<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;text-align: center;">{{ blog.heading }}</h1>
+							<p style="color: #3a3a3a;">{{ blog.description|safe }}<a href="{{ blog.url }}" target="_blank"> Read the full article</a></p>
+							<h2 style="text-align: center;">{{ blog.author }}</h2>
+							<h3 style="color: #666666; text-align: center;"><strong>{{ blog.platform }}</strong></h3>
 						</div>
 						{% endfor %}
 					</div>
 					{% else %}
-					<div class="single-review">
-						{% for blog in blogs_data %}
-						<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;">{{ blog.heading }}</h1>
-						<p style="color: #3a3a3a;">{{ blog.description }}<a href="{{blog.link}}" target="_blank"> Read the full article</a></p>
-						<h2>{{ blog.author }}</h2>
-						<h3>{{ blog.platform }}</h3>
+					<div class="single-review" style="text-align: left;">
+						{% for blog in medium_articles %}
+						<h1 style="margin-bottom: 10px; font-weight: bold; font-size: 2em; color: #333;text-align: center;">{{ blog.heading }}</h1>
+						<p style="color: #3a3a3a;">{{ blog.description|safe }}<a href="{{ blog.url }}" target="_blank"> Read the full article</a></p>
+						<h2 style="text-align: center;">{{ blog.author }}</h2>
+						<h3 style="color: #666666; text-align: center;"><strong>{{ blog.platform }}</strong></h3>
 						{% endfor %}
 					</div>
 					{% endif %}
