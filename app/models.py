@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Person(models.Model):
     name = models.CharField(max_length=100)
+    job_title_animated_text = models.TextField(default="Vision Engineer, From Lahore Pakistan")
     email = models.EmailField(max_length=150)
     phone = models.CharField(max_length=25, blank=True)
     post = models.CharField(max_length=100)  

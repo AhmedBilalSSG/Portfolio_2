@@ -187,7 +187,7 @@
 		<div class="intro-inner">
 			<div class="intro-content">
 				<h1>{{i.name}}</h1>
-				<h2><span class="rotate"> {{i.post}}, From {{i.location}}</span></h2>
+				<h2><span class="rotate"> {{i.job_title_animated_text}} </span></h2>
 			</div>
 		</div>
 	</section>
@@ -396,7 +396,8 @@
 	
 			<div class="row isotope_items">
 				{% for i in cer %}
-				<div class=" col-md-4 col-sm-6 col-xs-12">
+				{% if forloop.counter == cer|length %}
+				<div class="col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center">
 					<div class="certificate-item">
 						<a href="{{ i.certificate.url }}" data-fancybox="gallery" data-caption="{{ i.modal_caption }}" style="text-decoration: none; color: inherit;">
 							<img src="{{ i.certificate.url }}" alt="Sample Certificate">
@@ -411,11 +412,27 @@
 						</div>
 					</div>
 				</div>
+				{% else %}
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="certificate-item">
+						<a href="{{ i.certificate.url }}" data-fancybox="gallery" data-caption="{{ i.modal_caption }}" style="text-decoration: none; color: inherit;">
+							<img src="{{ i.certificate.url }}" alt="Sample Certificate">
+						</a>
+						<div class="certificate-info">
+							<h2>
+								<a href="{{ i.verify }}" target="_blank">
+									<strong style="color: #1d1d1d;">{{ i.title }}</strong>
+								</a>
+							</h2>
+							<p>{{ i.description }}</p>
+						</div>
+					</div>
+				</div>
+				{% endif %}
 				{% endfor %}
 			</div>
 		</div>
 	</section>
-	
 	<!--====== Review Section End ======-->
 
 	<!--====== Review Section Start ======-->
@@ -669,7 +686,6 @@
 						'csrfmiddlewaretoken': '{{ csrf_token }}', 
 					},
 					success: function(response) {
-						// Display success alert
 						swal("Success!", "Your message has been sent successfully!", "success");
 						$('#con_form')[0].reset(); 
 					},
