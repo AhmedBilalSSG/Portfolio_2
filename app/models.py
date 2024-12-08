@@ -257,3 +257,17 @@ class Blog_Heading_Info(models.Model):
 
     def __str__(self):
         return self.main_heading
+    
+class Blog(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    author = models.CharField(max_length=100,default="Ahmad Bilal Bhatti")
+    platform = models.CharField(max_length=100,default="Medium")
+    url = models.URLField(max_length=250)
+    added_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Blogs"
+
+    def __str__(self):
+        return self.title

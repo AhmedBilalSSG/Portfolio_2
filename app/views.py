@@ -19,7 +19,8 @@ def home(request):
     hire = Hire_Button_Picture.objects.all()
     head_contact = Contct_heading_Info.objects.all()
     blog_headming = Blog_Heading_Info.objects.all()
-    medium_articles = scrape_medium_articles_rss()
+    # medium_articles = scrape_medium_articles_rss()
+    medium_articles = Blog.objects.all().order_by('-id')
 
     return render(request, 'index-video.html', {'person': person,'about': about,'skills': skills,'cap': cap,'education': education,'exp': exp,'proj_heading': proj_heading,'proj': projects,'certificates': certificates,'cer': cer,'hire': hire,
     'head_contact': head_contact,'blog_headming': blog_headming,'medium_articles': medium_articles})
@@ -52,5 +53,5 @@ def scrape_medium_articles_rss():
     for entry in feed.entries:
         full_description = entry.summary
         truncated_description = ' '.join(full_description.split()[:112]) + ('...' if len(full_description.split()) > 112 else '')
-        article_list.append({'heading': entry.title,'url': entry.link,'author': entry.author if 'author' in entry else 'Unknown','type': 'Article','platform': 'Medium', 'description': truncated_description, })
+        article_list.append({'title': entry.title,'url': entry.link,'author': entry.author if 'author' in entry else 'Unknown','type': 'Article','platform': 'Medium', 'description': truncated_description, })
     return article_list
